@@ -1,4 +1,4 @@
-package org.apache.jmeter.functions;
+package org.apache.jmeter.processor;
 
 import org.apache.jmeter.testelement.AbstractTestElement;
 

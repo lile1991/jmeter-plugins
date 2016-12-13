@@ -1,7 +1,6 @@
-package org.apache.jmeter.functions;
+package org.apache.jmeter.processor;
 
 import org.apache.jmeter.config.Arguments;
-import org.apache.jmeter.processor.PreProcessor;
 import org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase;
 import org.apache.jmeter.samplers.Sampler;
 import org.apache.jmeter.testbeans.TestBean;
