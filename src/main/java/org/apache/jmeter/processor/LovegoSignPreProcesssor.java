@@ -37,7 +37,9 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
 
             sign.append(salt);
             for(Map.Entry<String, String> entry: entrySet) {
-                sign.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
+                if(entry.getValue() != null && entry.getValue().length() > 0) {
+                    sign.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
+                }
             }
             sign.append(salt);
             httpSampler.addArgument("salt", salt);
