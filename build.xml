@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jmeter-plugin" basedir="." default="jar">
+     <target name="jar">
+          <jar basedir="${basedir}/target/classes" destfile="E:/apache-jmeter-3.1/lib/ext/Lee_plugin.jar" />
+     </target>
+</project>
