@@ -15,6 +15,8 @@ import java.util.*;
  * Created by Administrator on 2016/12/13 0013.
  */
 public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implements PreProcessor, TestBean {
+    public static final String SALT = "salt";
+
     public void process() {
         StringBuilder sign = new StringBuilder();
 
@@ -25,14 +27,22 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
 
             JMeterVariables vars = jmctx.getVariables();
             String salt = vars.get("salt");
-            if(salt == null) {
-                return;
+
+            Arguments arguments = httpSampler.getArguments();
+            Map<String, String> argumentsAsMap = arguments.getArgumentsAsMap();
+            {
+                String argumentSalt = argumentsAsMap.get(SALT);
+                if(argumentSalt != null && argumentSalt.trim().length() > 0) {
+                    salt = argumentSalt;
+                } else {
+                    httpSampler.addArgument("salt", salt);
+                }
             }
 
-            Map<String, String> argumentMap = new TreeMap<String, String>();
-            Arguments arguments = httpSampler.getArguments();
+            Map<String, String> argumentMap = new TreeMap<>();
             argumentMap.putAll(arguments.getArgumentsAsMap());
-            argumentMap.put("salt", salt);
+            argumentMap.put(SALT, salt);
+
             Set<Map.Entry<String, String>> entrySet = argumentMap.entrySet();
 
             sign.append(salt);
@@ -42,7 +52,6 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
                 }
             }
             sign.append(salt);
-            httpSampler.addArgument("salt", salt);
             httpSampler.addArgument("sign", MD5Util.MD5Encode(sign.toString(), "UTF-8").toUpperCase());
             vars.put("signSource", sign.toString());
         }
