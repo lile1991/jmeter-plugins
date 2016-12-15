@@ -56,4 +56,14 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
             vars.put("signSource", sign.toString());
         }
     }
+
+    @Override
+    public void setComment(String comment) {
+        super.setComment("微信前端接口参数自动加密工具");
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName("Lovego Sign PreProcessor");
+    }
 }
