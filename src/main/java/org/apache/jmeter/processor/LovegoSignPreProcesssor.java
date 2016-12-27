@@ -64,6 +64,6 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
 
     @Override
     public void setName(String name) {
-        super.setName("Lovego Sign PreProcessor");
+        super.setName("Lovego Sign Pre Processor");
     }
 }

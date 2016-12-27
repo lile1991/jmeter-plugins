@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="jmeter-plugins" basedir="." default="jar">
-     <property name="jmeter.home" value="/java/apache-jmeter-3.1" />
-     <target name="jar">
-          <jar basedir="${basedir}/target/classes" destfile="${jmeter.home}/lib/ext/Lee_plugin.jar" />
+<project name="jmeter-plugins" basedir="." default="copy-jar">
+     <property name="jmeter.home" value="E:/apache-jmeter-3.1" />
+
+     <target name="copy-jar">
+          <copy todir="${jmeter.home}/lib/ext">
+               <fileset dir="target" includes="*.jar" />
+               <fileset dir="jmeter-redis/target" includes="*.jar" />
+          </copy>
      </target>
 </project>
