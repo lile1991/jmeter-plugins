@@ -35,6 +35,10 @@ public class RedisPoolElement extends AbstractTestElement implements ConfigEleme
     private transient int timeout;
     private transient String password;
 
+    public RedisPoolElement() {
+        this.setName("Redis Pool Configuration");
+    }
+
     @Override
     public void addConfigElement(ConfigElement configElement) {
 
@@ -183,8 +187,4 @@ public class RedisPoolElement extends AbstractTestElement implements ConfigEleme
         this.password = password;
     }
 
-    @Override
-    public String getName() {
-        return "Redis Pool Configuration";
-    }
 }
