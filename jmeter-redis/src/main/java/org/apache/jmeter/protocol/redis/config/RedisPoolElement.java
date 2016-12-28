@@ -59,7 +59,7 @@ public class RedisPoolElement extends AbstractTestElement implements ConfigEleme
             throw new IllegalArgumentException("Variable Name must not be empty for element:" + this.getName());
         } else {
             if(variables.getObject(poolName) != null) {
-                log.error("JDBC data source already defined for: " + poolName);
+                log.error("Redis pool already defined for: " + poolName);
             } else {
                 JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
                 jedisPoolConfig.setMaxTotal(maxTotal);
