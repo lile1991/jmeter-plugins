@@ -9,10 +9,10 @@
 ````
 
 
-- Redis配置示例:
+#### Redis配置示例:
 ![增加Redis配置](https://git.oschina.net/uploads/images/2017/0824/145903_9c81ea50_467163.png "AddRedis.png")
 ![设置参数](https://git.oschina.net/uploads/images/2017/0824/145911_2f15b300_467163.png "Redis.png")
 
 
-- MD5函数示例：
+#### MD5函数示例：
 ![MD5函数](https://git.oschina.net/uploads/images/2017/0824/145918_2bcdb271_467163.png "MD5.png")
