@@ -9,9 +9,9 @@
 
 
 Redis配置示例:
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145505_6c8bde08_467163.png "屏幕截图.png")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145522_fef79dc2_467163.png "屏幕截图.png")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145903_9c81ea50_467163.png "AddRedis.png")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145911_2f15b300_467163.png "Redis.png")
 
 
 MD5函数示例：
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145600_8b035070_467163.png "屏幕截图.png")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0824/145918_2bcdb271_467163.png "MD5.png")
