@@ -26,7 +26,7 @@ public class Md5Function extends AbstractFunction {
     }
 
     public String getReferenceKey() {
-        return "__MD5";
+        return "MD5";
     }
 
     public List<String> getArgumentDesc() {

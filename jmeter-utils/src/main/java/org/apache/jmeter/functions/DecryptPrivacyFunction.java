@@ -13,15 +13,15 @@ import java.util.List;
 /**
  * Created by zhangwanli on 2017/10/31.
  */
-public class EncryptPrivacyFunction extends AbstractFunction {
+public class DecryptPrivacyFunction extends AbstractFunction {
     // Function参数
     private Key key;
-    private String unencrypted;
+    private String encrypted;
 
 
     @Override
     public String execute(SampleResult sampleResult, Sampler sampler) {
-        return PrivacyMaskUtils.encryptPrivacy(key, unencrypted);
+        return PrivacyMaskUtils.decryptPrivacy(key, encrypted);
     }
 
     /**
@@ -35,8 +35,8 @@ public class EncryptPrivacyFunction extends AbstractFunction {
         CompoundVariable keyVar = collection.iterator().next();
         key = PrivacyMaskUtils.createKey(keyVar.execute());
 
-        CompoundVariable unencryptedVar = collection.iterator().next();
-        unencrypted = unencryptedVar.execute();
+        CompoundVariable encryptedVar = collection.iterator().next();
+        encrypted = encryptedVar.execute();
     }
 
     /**
@@ -44,7 +44,7 @@ public class EncryptPrivacyFunction extends AbstractFunction {
      */
     @Override
     public String getReferenceKey() {
-        return "__EncryptPrivacy";
+        return "DecryptPrivacy";
     }
 
     /**
@@ -52,7 +52,7 @@ public class EncryptPrivacyFunction extends AbstractFunction {
      */
     @Override
     public List<String> getArgumentDesc() {
-        return Arrays.asList("key", "unencrypted");
+        return Arrays.asList("key", "encrypted");
     }
 
 }
