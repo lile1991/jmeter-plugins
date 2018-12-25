@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/12/13 0013.
+ * MD5加密函数
  */
 public class Md5Function extends AbstractFunction {
     private CompoundVariable parameter;

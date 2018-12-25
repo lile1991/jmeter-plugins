@@ -4,6 +4,7 @@ import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase;
 import org.apache.jmeter.samplers.Sampler;
 import org.apache.jmeter.testbeans.TestBean;
+import org.apache.jmeter.testelement.AbstractTestElement;
 import org.apache.jmeter.threads.JMeterContext;
 import org.apache.jmeter.threads.JMeterContextService;
 import org.apache.jmeter.threads.JMeterVariables;
@@ -12,9 +13,10 @@ import org.apache.jmeter.utils.MD5Util;
 import java.util.*;
 
 /**
- * Created by Administrator on 2016/12/13 0013.
+ * http前置处理器
+ * 用于测试定制接口， 把所有参数hash排序并加密后放到salt
  */
-public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implements PreProcessor, TestBean {
+public class XXSignPreProcesssor extends AbstractTestElement implements PreProcessor, TestBean {
     public static final String SALT = "salt";
 
     public void process() {
@@ -59,11 +61,11 @@ public class LovegoSignPreProcesssor extends AbstractLovegoTestElement implement
 
     @Override
     public void setComment(String comment) {
-        super.setComment("微信前端接口参数自动加密工具");
+        super.setComment("接口参数自动加密工具");
     }
 
     @Override
     public void setName(String name) {
-        super.setName("Lovego Sign Pre Processor");
+        super.setName("xxx Sign Pre Processor");
     }
 }
