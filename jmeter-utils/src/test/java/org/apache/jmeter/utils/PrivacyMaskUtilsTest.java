@@ -1,5 +1,6 @@
 package org.apache.jmeter.utils;
 
+import com.le.jmeter.utils.PrivacyMaskUtils;
 import org.apache.commons.codec.binary.Base64;
 
 import java.security.Key;
