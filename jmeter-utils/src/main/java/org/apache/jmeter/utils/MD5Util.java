@@ -7,14 +7,17 @@ import java.security.MessageDigest;
 
 public class MD5Util {
 
-	private static String byteArrayToHexString(byte b[]) {
-		StringBuffer resultSb = new StringBuffer();
+	private static String byteArrayToHexString(byte[] b) {
+		StringBuilder resultSb = new StringBuilder();
 		for (int i = 0; i < b.length; i++)
 			resultSb.append(byteToHexString(b[i]));
 
 		return resultSb.toString();
 	}
 
+
+	private static final String[] hexDigits = {"0", "1", "2", "3", "4", "5",
+			"6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 	private static String byteToHexString(byte b) {
 		int n = b;
 		if (n < 0)
@@ -24,23 +27,22 @@ public class MD5Util {
 		return hexDigits[d1] + hexDigits[d2];
 	}
 
-	public static String MD5Encode(String origin, String charsetname) {
-		String resultString = null;
+	public static String MD5Encode(String origin, String charsetName) {
+		String resultString;
 		try {
-			resultString = new String(origin);
+			resultString = origin;
 			MessageDigest md = MessageDigest.getInstance("MD5");
-			if (charsetname == null || "".equals(charsetname))
+			if (charsetName == null || "".equals(charsetName))
 				resultString = byteArrayToHexString(md.digest(resultString
 						.getBytes()));
 			else
 				resultString = byteArrayToHexString(md.digest(resultString
-						.getBytes(charsetname)));
-		} catch (Exception exception) {
+						.getBytes(charsetName)));
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return resultString;
 	}
-
-	private static final String hexDigits[] = { "0", "1", "2", "3", "4", "5",
-			"6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
 }

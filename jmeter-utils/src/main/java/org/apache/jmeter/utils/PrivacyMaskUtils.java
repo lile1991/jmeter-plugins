@@ -7,8 +7,6 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 
 public class PrivacyMaskUtils {
-    private static String aesKey = "D/6ZGt4Lq/pcPbQ8O1q52A==";
-
     public static Key createKey(String aesKey) {
         return new SecretKeySpec(Base64.decodeBase64(aesKey), "AES");
     }
