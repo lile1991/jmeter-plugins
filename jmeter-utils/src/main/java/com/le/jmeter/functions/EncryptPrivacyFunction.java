@@ -6,6 +6,8 @@ import org.apache.jmeter.functions.AbstractFunction;
 import org.apache.jmeter.functions.InvalidVariableException;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.samplers.Sampler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.Key;
 import java.util.Arrays;
@@ -16,6 +18,8 @@ import java.util.List;
  * Created by zhangwanli on 2017/10/31.
  */
 public class EncryptPrivacyFunction extends AbstractFunction {
+    private static final Logger log = LoggerFactory.getLogger(EncryptPrivacyFunction.class);
+
     // Function参数
     private Key key;
     private String unencrypted;
@@ -35,10 +39,14 @@ public class EncryptPrivacyFunction extends AbstractFunction {
         checkParameterCount(collection, 2);
 
         CompoundVariable keyVar = collection.iterator().next();
-        key = PrivacyMaskUtils.createKey(keyVar.execute());
+        String keyBase64Str = keyVar.execute();
+        log.debug("key = {}", keyBase64Str);
+        key = PrivacyMaskUtils.createKey(keyBase64Str);
 
         CompoundVariable unencryptedVar = collection.iterator().next();
-        unencrypted = unencryptedVar.execute();
+        String unencryptedStr = unencryptedVar.execute();
+        log.debug("unencryptedVar = {}", unencryptedVar);
+        unencrypted = unencryptedStr;
     }
 
     /**
@@ -54,7 +62,7 @@ public class EncryptPrivacyFunction extends AbstractFunction {
      */
     @Override
     public List<String> getArgumentDesc() {
-        return Arrays.asList("key", "unencrypted");
+        return Arrays.asList("keyBase64", "unencrypted");
     }
 
 }
