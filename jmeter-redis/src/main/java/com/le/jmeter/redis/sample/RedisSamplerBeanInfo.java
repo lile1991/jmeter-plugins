@@ -1,6 +1,6 @@
-package org.apache.jmeter.protocol.redis.sample;
+package com.le.jmeter.redis.sample;
 
-import org.apache.jmeter.protocol.redis.RedisTestElementBeanInfoSupport;
+import com.le.jmeter.redis.RedisTestElementBeanInfoSupport;
 
 /**
  * Created by Administrator on 2016/12/27 0027.

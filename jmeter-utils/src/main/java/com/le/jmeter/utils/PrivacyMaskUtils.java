@@ -1,4 +1,4 @@
-package org.apache.jmeter.utils;
+package com.le.jmeter.utils;
 
 import org.apache.commons.codec.binary.Base64;
 

@@ -1,4 +1,4 @@
-package org.apache.jmeter.protocol.redis.config;
+package com.le.jmeter.redis.config;
 
 import org.apache.jmeter.config.ConfigElement;
 import org.apache.jmeter.testbeans.TestBean;

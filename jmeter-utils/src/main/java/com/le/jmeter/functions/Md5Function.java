@@ -1,9 +1,11 @@
-package org.apache.jmeter.functions;
+package com.le.jmeter.functions;
 
+import com.le.jmeter.utils.MD5Util;
 import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.functions.AbstractFunction;
+import org.apache.jmeter.functions.InvalidVariableException;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.samplers.Sampler;
-import org.apache.jmeter.utils.MD5Util;
 
 import java.util.Arrays;
 import java.util.Collection;

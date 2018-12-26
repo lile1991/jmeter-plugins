@@ -1,4 +1,4 @@
-package org.apache.jmeter.protocol.redis.config;
+package com.le.jmeter.redis.config;
 
 import org.apache.jmeter.testbeans.BeanInfoSupport;
 import org.apache.jorphan.logging.LoggingManager;

@@ -1,8 +1,8 @@
-package org.apache.jmeter.protocol.redis.sample;
+package com.le.jmeter.redis.sample;
 
 import org.apache.jmeter.config.ConfigTestElement;
 import org.apache.jmeter.engine.util.ConfigMergabilityIndicator;
-import org.apache.jmeter.protocol.redis.AbstractRedisTestElement;
+import com.le.jmeter.redis.AbstractRedisTestElement;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.samplers.Sampler;

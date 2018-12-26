@@ -1,9 +1,11 @@
-package org.apache.jmeter.functions;
+package com.le.jmeter.functions;
 
+import com.le.jmeter.utils.PrivacyMaskUtils;
 import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.functions.AbstractFunction;
+import org.apache.jmeter.functions.InvalidVariableException;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.samplers.Sampler;
-import org.apache.jmeter.utils.PrivacyMaskUtils;
 
 import java.security.Key;
 import java.util.Arrays;
@@ -13,15 +15,15 @@ import java.util.List;
 /**
  * Created by zhangwanli on 2017/10/31.
  */
-public class DecryptPrivacyFunction extends AbstractFunction {
+public class EncryptPrivacyFunction extends AbstractFunction {
     // Function参数
     private Key key;
-    private String encrypted;
+    private String unencrypted;
 
 
     @Override
     public String execute(SampleResult sampleResult, Sampler sampler) {
-        return PrivacyMaskUtils.decryptPrivacy(key, encrypted);
+        return PrivacyMaskUtils.encryptPrivacy(key, unencrypted);
     }
 
     /**
@@ -35,8 +37,8 @@ public class DecryptPrivacyFunction extends AbstractFunction {
         CompoundVariable keyVar = collection.iterator().next();
         key = PrivacyMaskUtils.createKey(keyVar.execute());
 
-        CompoundVariable encryptedVar = collection.iterator().next();
-        encrypted = encryptedVar.execute();
+        CompoundVariable unencryptedVar = collection.iterator().next();
+        unencrypted = unencryptedVar.execute();
     }
 
     /**
@@ -44,7 +46,7 @@ public class DecryptPrivacyFunction extends AbstractFunction {
      */
     @Override
     public String getReferenceKey() {
-        return "DecryptPrivacy";
+        return "EncryptPrivacy";
     }
 
     /**
@@ -52,7 +54,7 @@ public class DecryptPrivacyFunction extends AbstractFunction {
      */
     @Override
     public List<String> getArgumentDesc() {
-        return Arrays.asList("key", "encrypted");
+        return Arrays.asList("key", "unencrypted");
     }
 
 }

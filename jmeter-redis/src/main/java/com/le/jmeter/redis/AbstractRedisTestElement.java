@@ -1,4 +1,4 @@
-package org.apache.jmeter.protocol.redis;
+package com.le.jmeter.redis;
 
 import org.apache.jmeter.testelement.AbstractTestElement;
 import org.apache.jmeter.testelement.TestStateListener;

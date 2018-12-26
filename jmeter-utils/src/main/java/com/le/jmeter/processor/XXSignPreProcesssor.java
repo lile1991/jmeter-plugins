@@ -1,6 +1,8 @@
-package org.apache.jmeter.processor;
+package com.le.jmeter.processor;
 
+import com.le.jmeter.utils.MD5Util;
 import org.apache.jmeter.config.Arguments;
+import org.apache.jmeter.processor.PreProcessor;
 import org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase;
 import org.apache.jmeter.samplers.Sampler;
 import org.apache.jmeter.testbeans.TestBean;
@@ -8,9 +10,10 @@ import org.apache.jmeter.testelement.AbstractTestElement;
 import org.apache.jmeter.threads.JMeterContext;
 import org.apache.jmeter.threads.JMeterContextService;
 import org.apache.jmeter.threads.JMeterVariables;
-import org.apache.jmeter.utils.MD5Util;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * http前置处理器
