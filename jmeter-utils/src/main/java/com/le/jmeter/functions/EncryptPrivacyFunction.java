@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -38,12 +39,14 @@ public class EncryptPrivacyFunction extends AbstractFunction {
     public void setParameters(Collection<CompoundVariable> collection) throws InvalidVariableException {
         checkParameterCount(collection, 2);
 
-        CompoundVariable keyVar = collection.iterator().next();
+        Iterator<CompoundVariable> iterator = collection.iterator();
+
+        CompoundVariable keyVar = iterator.next();
         String keyBase64Str = keyVar.execute();
         log.debug("key = {}", keyBase64Str);
         key = PrivacyMaskUtils.createKey(keyBase64Str);
 
-        CompoundVariable unencryptedVar = collection.iterator().next();
+        CompoundVariable unencryptedVar = iterator.next();
         String unencryptedStr = unencryptedVar.execute();
         log.debug("unencryptedVar = {}", unencryptedVar);
         unencrypted = unencryptedStr;
